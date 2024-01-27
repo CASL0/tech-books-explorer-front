@@ -3,7 +3,7 @@
 {
   "name": "Tech Books Explorer Front",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
-  "forwardPorts": [3000],
+  "forwardPorts": [3000, 8085],
   "workspaceMount": "source=${localWorkspaceFolder},target=/usr/local/src,type=bind,consistency=delegated",
   "workspaceFolder": "/usr/local/src",
   "postCreateCommand": "yarn install",
