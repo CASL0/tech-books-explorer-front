@@ -1,4 +1,10 @@
 import type { Preview } from "@storybook/vue3";
+import { setup } from "@storybook/vue3";
+import { registerPlugins } from "../src/plugins";
+
+setup((app) => {
+  registerPlugins(app);
+});
 
 const preview: Preview = {
   parameters: {
