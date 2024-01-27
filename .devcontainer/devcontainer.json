@@ -13,7 +13,8 @@
         "yzhang.markdown-all-in-one",
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
-        "Vue.volar"
+        "Vue.volar",
+        "Vue.vscode-typescript-vue-plugin"
       ],
       "settings": {
         "editor.tabSize": 2,
