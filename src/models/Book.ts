@@ -18,4 +18,12 @@ export interface Book {
    * isbn
    */
   isbn: string;
+  /**
+   * 本の価格
+   */
+  price: string;
+  /**
+   * 本の出版社ページのURL
+   */
+  url: string;
 }
