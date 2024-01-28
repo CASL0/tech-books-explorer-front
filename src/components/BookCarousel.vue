@@ -1,6 +1,13 @@
 <template>
   <div>
-    <v-row class="label"> {{ label }} </v-row>
+    <v-row>
+      <v-col cols="auto">
+        <span class="label">{{ label }}</span>
+      </v-col>
+      <v-col cols="auto">
+        <v-icon icon="mdi-expand-all" @click="onClickExpandAll(label)" />
+      </v-col>
+    </v-row>
     <Swiper
       class="swiper swiper-container"
       :slidesPerView="3"
@@ -28,6 +35,7 @@ import { Pagination } from "swiper/modules";
 import BookCard from "@/components/BookCard.vue";
 import "swiper/swiper-bundle.css";
 import { useRouter } from "vue-router";
+import { openUrl } from "@/utils/windowUtils";
 
 const router = useRouter();
 
@@ -42,22 +50,11 @@ const onClickCard = (url: string) => {
   const width = 800;
   const height = 650;
 
-  // 現在のブラウザウィンドウの位置とサイズを取得
-  const windowLeft = window.screenX || window.screenLeft;
-  const windowTop = window.screenY || window.screenTop;
-  const windowWidth = window.outerWidth;
-  const windowHeight = window.outerHeight;
+  openUrl(url, width, height);
+};
 
-  // 新しいウィンドウの開始位置を計算
-  const left = windowLeft + (windowWidth - width) / 2;
-  const top = windowTop + (windowHeight - height) / 2;
-
-  // 新しいウィンドウを開く
-  window.open(
-    url,
-    "newWindow",
-    `width=${width},height=${height},left=${left},top=${top}`
-  );
+const onClickExpandAll = (publisher: string) => {
+  router.push({ path: `/books/${publisher}` });
 };
 </script>
 <style scoped>
