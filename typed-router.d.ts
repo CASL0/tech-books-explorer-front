@@ -40,6 +40,7 @@ import type {
 declare module 'vue-router/auto/routes' {
   export interface RouteNamedMap {
     '/': RouteRecordInfo<'/', '/', Record<never, never>, Record<never, never>>,
+    '/books/[publisher]': RouteRecordInfo<'/books/[publisher]', '/books/:publisher', { publisher: ParamValue<true> }, { publisher: ParamValue<false> }>,
   }
 }
 
