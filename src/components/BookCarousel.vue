@@ -1,4 +1,5 @@
 <template>
+  <v-row class="label"> {{ label }} </v-row>
   <Swiper
     class="swiper swiper-container"
     :slidesPerView="3"
@@ -13,7 +14,8 @@
         :title="book.title"
         :publishedAt="book.publishedAt"
         :publisher="book.publisher"
-    /></SwiperSlide>
+      />
+    </SwiperSlide>
   </Swiper>
 </template>
 <script setup lang="ts">
@@ -25,6 +27,7 @@ import "swiper/swiper-bundle.css";
 
 defineProps<{
   books: Book[];
+  label: string;
 }>();
 
 const modules = [Pagination];
@@ -33,5 +36,10 @@ const modules = [Pagination];
 .swiper-container {
   height: auto;
   padding: 8px;
+}
+
+.label {
+  padding: 1rem;
+  font-size: 20px;
 }
 </style>

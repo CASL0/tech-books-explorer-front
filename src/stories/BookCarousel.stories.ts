@@ -40,7 +40,7 @@ const meta = {
   title: "Example/BookCarousel",
   component: BookCarousel,
   tags: ["autodocs"],
-  args: { books: books },
+  args: { books: books, label: "カルーセルのヘッダ" },
 } satisfies Meta<typeof BookCarousel>;
 
 export default meta;
@@ -49,5 +49,6 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     books: books,
+    label: "おすすめ",
   },
 };
