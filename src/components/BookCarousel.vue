@@ -15,6 +15,7 @@
           :title="book.title"
           :publishedAt="book.publishedAt"
           :publisher="book.publisher"
+          @click="onClickCard(book.url)"
         />
       </SwiperSlide>
     </Swiper>
@@ -26,6 +27,9 @@ import { Book } from "@/models/Book";
 import { Pagination } from "swiper/modules";
 import BookCard from "@/components/BookCard.vue";
 import "swiper/swiper-bundle.css";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 defineProps<{
   books: Book[];
@@ -33,6 +37,28 @@ defineProps<{
 }>();
 
 const modules = [Pagination];
+
+const onClickCard = (url: string) => {
+  const width = 800;
+  const height = 650;
+
+  // 現在のブラウザウィンドウの位置とサイズを取得
+  const windowLeft = window.screenX || window.screenLeft;
+  const windowTop = window.screenY || window.screenTop;
+  const windowWidth = window.outerWidth;
+  const windowHeight = window.outerHeight;
+
+  // 新しいウィンドウの開始位置を計算
+  const left = windowLeft + (windowWidth - width) / 2;
+  const top = windowTop + (windowHeight - height) / 2;
+
+  // 新しいウィンドウを開く
+  window.open(
+    url,
+    "newWindow",
+    `width=${width},height=${height},left=${left},top=${top}`
+  );
+};
 </script>
 <style scoped>
 .swiper-container {
