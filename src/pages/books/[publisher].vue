@@ -9,6 +9,7 @@
           :title="book.title"
           :publishedAt="book.publishedAt"
           :publisher="book.publisher"
+          @click="onClickCard(book.url)"
           class="card"
         />
       </v-col>
@@ -23,6 +24,7 @@ import BookCard from "@/components/BookCard.vue";
 import { Book } from "@/models/Book";
 import { computed } from "vue";
 import dayjs from "dayjs";
+import { openUrl } from "@/utils/windowUtils";
 
 const route = useRoute();
 const appStore = useAppStore();
@@ -35,6 +37,13 @@ const books = computed<Book[]>(() => {
     (e: Book) => e.publishedAt >= aYearAgo.format("YYYY-MM-DD")
   );
 });
+
+const onClickCard = (url: string) => {
+  const width = 800;
+  const height = 650;
+
+  openUrl(url, width, height);
+};
 </script>
 
 <style scoped>
