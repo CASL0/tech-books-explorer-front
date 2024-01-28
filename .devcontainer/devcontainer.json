@@ -14,7 +14,8 @@
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
         "Vue.volar",
-        "Vue.vscode-typescript-vue-plugin"
+        "Vue.vscode-typescript-vue-plugin",
+        "antfu.vite"
       ],
       "settings": {
         "editor.tabSize": 2,
