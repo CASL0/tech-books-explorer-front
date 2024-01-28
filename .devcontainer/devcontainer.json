@@ -15,7 +15,8 @@
         "esbenp.prettier-vscode",
         "Vue.volar",
         "Vue.vscode-typescript-vue-plugin",
-        "antfu.vite"
+        "antfu.vite",
+        "NicholasHsiang.vscode-pinia-snippets"
       ],
       "settings": {
         "editor.tabSize": 2,
