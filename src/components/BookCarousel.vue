@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-row>
+    <v-row align="center">
       <v-col cols="auto">
         <span class="label">{{ label }}</span>
       </v-col>
       <v-col cols="auto">
-        <v-icon icon="mdi-expand-all" @click="onClickExpandAll(label)" />
+        <v-icon icon="mdi-chevron-right" @click="onClickExpandAll(label)" />
       </v-col>
     </v-row>
     <Swiper
