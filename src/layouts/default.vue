@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <DefaultBar />
+    <DefaultBar class="app-bar" />
 
     <DefaultView />
   </v-app>
@@ -10,3 +10,9 @@
 import DefaultBar from "./default/AppBar.vue";
 import DefaultView from "./default/View.vue";
 </script>
+<style scoped>
+.app-bar {
+  background-color: #131921;
+  color: #fff;
+}
+</style>

@@ -9,6 +9,8 @@
           :title="book.title"
           :publishedAt="book.publishedAt"
           :publisher="book.publisher"
+          background-color="#414963"
+          font-color="#fff"
           @click="onClickCard(book.url)"
           class="card"
         />

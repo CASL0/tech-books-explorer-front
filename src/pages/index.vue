@@ -1,19 +1,21 @@
 <template>
-  <BookCarousel
-    :books="oreillyBooks"
-    :label="$t('bookCarousel.oreilly')"
-    class="carousel"
-  />
-  <BookCarousel
-    :books="gihyoBooks"
-    :label="$t('bookCarousel.gihyo')"
-    class="carousel"
-  />
-  <BookCarousel
-    :books="shoeishaBooks"
-    :label="$t('bookCarousel.shoeisha')"
-    class="carousel"
-  />
+  <v-container>
+    <BookCarousel
+      :books="oreillyBooks"
+      :label="$t('bookCarousel.oreilly')"
+      class="carousel"
+    />
+    <BookCarousel
+      :books="gihyoBooks"
+      :label="$t('bookCarousel.gihyo')"
+      class="carousel"
+    />
+    <BookCarousel
+      :books="shoeishaBooks"
+      :label="$t('bookCarousel.shoeisha')"
+      class="carousel"
+    />
+  </v-container>
 </template>
 
 <script lang="ts" setup>
