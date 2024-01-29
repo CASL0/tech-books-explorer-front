@@ -35,9 +35,9 @@ const publisher = route.params.publisher;
 
 const books = computed<Book[]>(() => {
   const aYearAgo = dayjs().subtract(1, "year");
-  return appStore.books.filter(
-    (e: Book) => e.publishedAt >= aYearAgo.format("YYYY-MM-DD")
-  );
+  return appStore.books
+    .filter((e: Book) => e.publishedAt >= aYearAgo.format("YYYY-MM-DD"))
+    .filter((e: Book) => e.publisher === publisher);
 });
 
 const onClickCard = (url: string) => {
