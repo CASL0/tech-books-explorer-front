@@ -1,10 +1,10 @@
 <template>
   <v-container>
     <v-row>
-      <span class="header">検索結果：{{ keyword }}</span>
+      <span class="header">{{ $t("search.resultHeader", { keyword }) }}</span>
     </v-row>
     <div v-if="searchedBooks.length === 0">
-      {{ keyword }}の検索結果が見つかりませんでした。
+      {{ $t("search.noResultsFound", { keyword }) }}
     </div>
     <v-else>
       <v-row no-gutters>

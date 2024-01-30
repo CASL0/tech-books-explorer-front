@@ -11,7 +11,7 @@
         type="text"
         v-model="keyword"
         class="text-field"
-        placeholder="キーワードで検索"
+        :placeholder="$t('appBar.searchPlaceholder')"
       />
     </form>
   </v-app-bar>
