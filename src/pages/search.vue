@@ -13,9 +13,9 @@
             :title="book.title"
             :publishedAt="book.publishedAt"
             :publisher="book.publisher"
-            background-color="#414963"
-            font-color="#fff"
-            @click="onClickCard(book.url)"
+            :background-color="backgroundColor"
+            :font-color="fontColor"
+            @click="openBookUrl(book.url)"
             class="card"
           />
         </v-col>
@@ -28,7 +28,7 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useAppStore } from "@/store/app";
 import BookCard from "@/components/BookCard.vue";
-import { openUrl } from "@/utils/windowUtils";
+import { useBookCard } from "@/composables/useBookCard";
 
 const route = useRoute();
 const store = useAppStore();
@@ -39,12 +39,7 @@ const searchedBooks = computed(() =>
   store.books.filter((e) => e.title.indexOf(keyword.value) !== -1)
 );
 
-const onClickCard = (url: string) => {
-  const width = 800;
-  const height = 650;
-
-  openUrl(url, width, height);
-};
+const { openBookUrl, backgroundColor, fontColor } = useBookCard();
 </script>
 <style scoped>
 .header {

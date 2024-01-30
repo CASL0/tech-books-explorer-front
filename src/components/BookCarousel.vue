@@ -22,9 +22,9 @@
           :title="book.title"
           :publishedAt="book.publishedAt"
           :publisher="book.publisher"
-          background-color="#414963"
-          font-color="#fff"
-          @click="onClickCard(book.url)"
+          :background-color="backgroundColor"
+          :font-color="fontColor"
+          @click="openBookUrl(book.url)"
         />
       </SwiperSlide>
     </Swiper>
@@ -37,7 +37,7 @@ import { Pagination } from "swiper/modules";
 import BookCard from "@/components/BookCard.vue";
 import "swiper/swiper-bundle.css";
 import { useRouter } from "vue-router";
-import { openUrl } from "@/utils/windowUtils";
+import { useBookCard } from "@/composables/useBookCard";
 
 const router = useRouter();
 
@@ -48,12 +48,7 @@ defineProps<{
 
 const modules = [Pagination];
 
-const onClickCard = (url: string) => {
-  const width = 800;
-  const height = 650;
-
-  openUrl(url, width, height);
-};
+const { openBookUrl, backgroundColor, fontColor } = useBookCard();
 
 const onClickExpandAll = (publisher: string) => {
   router.push({ path: `/books/${publisher}` });
